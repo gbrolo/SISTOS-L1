@@ -65,14 +65,16 @@ read(0,
 
 1. ¿Por qué la primera llamada que aparece es execve?
 Ya que lo que se desea es reemplazar la imagen del proceso actual con una nueva, es necesario llamar
-a execve() para que ejecute el programa al que apunta el filename, en este caso: ./ejercicio2b.
+a ```execve()``` para que ejecute el programa al que apunta el filename, en este caso: ```./ejercicio2b```.
 
 2. ¿Qué significan los resultados (números que están luego del signo ‘=’)?
 Los numeros significan si la ejecucion ha sido exitosa o no y dependen del proceso que se ejecute.
 En el caso de las llamadas hechas por el codigo, el numero varia segun la llamada, para el caso de open,
 por ejemplo:
 
+```
 open("/etc/ld.so.cache", O_RDONLY)      = 3
+```
 
 Se tiene un return de 3, que en este caso indica que el open fue exitoso.
 
@@ -82,23 +84,23 @@ nuevos archivos y luego para escribir en el segundo archivo, con ayuda de mmap2.
 
 4. Los tres servicios son:
 
-    a. access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+    a. ```access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)```
     Este proceso verifica si el proceso que esta llamando puede acceder al archivo provisto con el path.
     La respuesta -1 significa que no se pudo acceder al archivo.
 
-    b. mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7749000 
+    b. ```mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7749000``` 
     mmap2 realiza un mapping en memoria en la direccion virtual del proceso que llama. El primer
     parametro corresponde a la direccion inicial, el segundo parametro es el tamanio del mapeo.
     El tercer parametro describe la memoria de proteccion deseada para el mapeo. El cuarto argumento
     determina si las actualizaciones al mapeo son visibles por otros procesos que esten mapeando la misma
     region.
 
-    c. mprotect(0xb7732000, 4096, PROT_NONE)   = 0
+    c. ```mprotect(0xb7732000, 4096, PROT_NONE)   = 0```
     El proceso mprotect cambia el acceso de las protecciones para las paginaciones de memoria del proceso
     que esta llamando y que contengan cualquier parte del rango de direcciones en el intervalo:
-
+    ```
     [addr, addr+len-1]
-
+    ```
     Si el proceso que llama trata de acceder a la memoria en una manera en la que viola las protecciones, el
     kernel generara una senial para el proceso. De ser exitoso, regresara un valor de 0, en error regresara
     -1.
@@ -124,3 +126,6 @@ identificar la llamada de sistema requerida.
 Por que la API de linux ya se encuentra definida y los paquetes que interactuan con esta API ya conocen
 que numero de llamada de sistema corresponde a las llamadas existentes, es decir que el nombre estara
 siempre asociado a el numero de llamada de sistema respectivo y ese linking no se puede modificar.
+
+#### Screenshot de la llamada
+![alt text](https://github.com/gbrolo/SISTOS-L1/blob/master/3h.PNG)
