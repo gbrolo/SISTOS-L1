@@ -26,8 +26,8 @@ de todos los procesos que ejecutan Linux. Se inicia durante el booteo del sistem
 vez el sistema sea apagado.
 
 #### Archivos de C
-[Ejercicio A](./ejercicio1a.c)
-[Ejercicio B](./ejercicio1b.c)
+* [Ejercicio A](./ejercicio1a.c)
+* [Ejercicio B](./ejercicio1b.c)
 
 ### Ejercicio 2
 
@@ -110,7 +110,7 @@ nuevos archivos y luego para escribir en el segundo archivo, con ayuda de mmap2.
     -1.
     
 #### Archivos de C
-[Ejercicio B](./ejercicio2b.c)
+* [Ejercicio B](./ejercicio2b.c)
 
 ### Ejercicio 3
 
@@ -136,4 +136,4 @@ siempre asociado a el numero de llamada de sistema respectivo y ese linking no s
 ![alt text](https://github.com/gbrolo/SISTOS-L1/blob/master/3h.PNG)
 
 #### Archivos de C
-[Ejercicio H](./ejercicio3h.c)
+* [Ejercicio H](./ejercicio3h.c)
