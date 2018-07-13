@@ -25,6 +25,10 @@ El proceso es init. La primer cosa que el kernel hace es ejecutar el programa in
 de todos los procesos que ejecutan Linux. Se inicia durante el booteo del sistema. Este finaliza una
 vez el sistema sea apagado.
 
+#### Archivos de C
+[Ejercicio A](./ejercicio1a.c)
+[Ejercicio B](./ejercicio1b.c)
+
 ### Ejercicio 2
 
 Output del trace:
@@ -104,6 +108,9 @@ nuevos archivos y luego para escribir en el segundo archivo, con ayuda de mmap2.
     Si el proceso que llama trata de acceder a la memoria en una manera en la que viola las protecciones, el
     kernel generara una senial para el proceso. De ser exitoso, regresara un valor de 0, en error regresara
     -1.
+    
+#### Archivos de C
+[Ejercicio B](./ejercicio2b.c)
 
 ### Ejercicio 3
 
@@ -111,11 +118,9 @@ nuevos archivos y luego para escribir en el segundo archivo, con ayuda de mmap2.
 La interfaz de llamadas de sistema de linux contiene funciones que son llamadas desde el espacio de usuario
 e interactuan con el driver en el espacio de kernel para obtener los datos deseados. Ahora, la API, es mas
 bien un termino generico que se utiliza para identificar las funciones expuestas por cualquier libreria.
-Esas funciones se implementan como parte de librerias o SDK.
-
-Todas las llamadas a sistema constituyen una API que el kernel provee a las aplicaciones que corren en la 
-plataforma. Estas llamadas de sistema forman parte de una API, sin embargo esta no sera la API de linux.
-Por lo tanto aqui se modifico la interfaz de llamadas del sistema.
+Esas funciones se implementan como parte de librerias o SDK. Todas las llamadas a sistema constituyen una API 
+que el kernel provee a las aplicaciones que corren en la plataforma. Estas llamadas de sistema forman parte de una 
+API, sin embargo esta no sera la API de linux. Por lo tanto aqui se modifico la interfaz de llamadas del sistema.
 
 2. ¿Por qué usamos el número de nuestra llamada de sistema en lugar de su nombre?
 Los procesos no interactuan con las llamadas a sistema a traves de nombre, sino que lo hacen a traves
@@ -129,3 +134,6 @@ siempre asociado a el numero de llamada de sistema respectivo y ese linking no s
 
 #### Screenshot de la llamada
 ![alt text](https://github.com/gbrolo/SISTOS-L1/blob/master/3h.PNG)
+
+#### Archivos de C
+[Ejercicio H](./ejercicio3h.c)
