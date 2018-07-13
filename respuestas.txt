@@ -1,19 +1,14 @@
-# SISTOS-L1
-Universidad del Valle de Guatemala
-Sistemas Operativos, S.10 2018 - Laboratorio 1
 
-## Respuestas
+Ejercicio 1
 
-### Ejercicio 1
-
-1. ¿Por  qué  aparecen  números diferentes cada vez? 
+1. ¿por  qué  aparecen  números diferentes cada vez? 
 Los numeros son distintos cada vez ya que cada vez que se ejecuta el programa, se corre un nuevo proceso
 que va a ejecutar el programa de C, es decir, se crea un nuevo proceso de C que va a correr el programa.
 El proceso anterior no se guarda, si no que se muere y luego cuando ya se necesita ejecutar de nuevo el programa,
 el SO levanta un nuevo proceso que lo ejecute.
 
 2. ¿Por qué aparecen dos números distintos a pesar de que estamos ejecutando un único programa?
-Se debe al uso de ```fork()```. Esta llamada al sistema crea nuevos procesos, llamados procesos hijos.
+Se debe al uso de fork(). Esta llamada al sistema crea nuevos procesos, llamados procesos hijos.
 Estos corren concurrentemente con el proceso padre. Siendo procesos distintos, tienen distindo pid.
 
 3. ¿Por qué el primer y el segundo números son iguales?
@@ -25,11 +20,10 @@ El proceso es init. La primer cosa que el kernel hace es ejecutar el programa in
 de todos los procesos que ejecutan Linux. Se inicia durante el booteo del sistema. Este finaliza una
 vez el sistema sea apagado.
 
-### Ejercicio 2
+Ejercicio 2
 
 Output del trace:
 
-```
 os@debian:~/Documents$ sudo strace ./ejercicio2b f1.txt f2.txt
 execve("./ejercicio2b", ["./ejercicio2b", "f1.txt", "f2.txt"], [/* 17 vars */]) = 0
 brk(0)                                  = 0x8586000
@@ -61,7 +55,6 @@ write(1, "First file:\n", 12First file:
 fstat64(0, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
 mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7747000
 read(0,
-```
 
 1. ¿Por qué la primera llamada que aparece es execve?
 Ya que lo que se desea es reemplazar la imagen del proceso actual con una nueva, es necesario llamar
@@ -103,7 +96,7 @@ nuevos archivos y luego para escribir en el segundo archivo, con ayuda de mmap2.
     kernel generara una senial para el proceso. De ser exitoso, regresara un valor de 0, en error regresara
     -1.
 
-### Ejercicio 3
+Ejercicio 3
 
 1. ¿Qué ha modificado aquí, la interfaz de llamadas de sistema o el API? Justifique su respuesta.
 La interfaz de llamadas de sistema de linux contiene funciones que son llamadas desde el espacio de usuario
